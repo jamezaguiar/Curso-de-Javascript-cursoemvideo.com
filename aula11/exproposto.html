@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visto</title>
+</head>
+<body>
+    <h1>Sistema de Verificação de Nacionalidade</h1>
+    Onde você está vivendo? <input type="text" id="txtnac">
+    <input type="button" value="Verificar" onclick="nac()">
+    <div id="res"></div>
+    <script>
+        function nac() {
+            var pais = 'Brasil'
+            var txtn = window.document.getElementById('txtnac').value
+            var res = window.document.getElementById('res')
+            if (txtn === pais) {
+                res.innerHTML = `<p>Vocé é <strong>BRASILEIRO!</strong></p>`
+            } else {
+                res.innerHTML = `<p>Você é <strong>ESTRANGEIRO!</strong></p>`
+            }
+        }
+    </script>
+</body>
+</html>

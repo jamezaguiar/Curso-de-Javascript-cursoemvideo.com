@@ -1,0 +1,336 @@
+Curso de JavaScript Anotações
+================================================================================================================================================================================================================
+#04
+-HTML, CSS e JavaScript
+-Usar HTML5
+-O HTML está presente basicamente em todo o arquivo, porém, dentro do escopo <style>*</style> fica o CSS
+e dentro do escopo <script>*</script> fica o JavaScript
+
+Comandos JavaScript:
+    window.alert('Mostra mensagem na tela');
+    window.confirm('Mostra mensagem na tela com botões 'OK' ou 'Cancelar'')
+    window.prompt('Recebe uma entrada do usuário')
+================================================================================================================================================================================================================
+#05
+Comentários:
+    // ou /*    */
+    Semelhante ao Java
+    Só serve dentro do escopo do JavaScript
+
+    Em HTML:
+        <!--COMENTARIO-->
+    Em CSS:
+        /*COMENTARIO*/
+
+Variáveis:
+    *Para declarar, utiliza-se a palavra var ou let
+    *O nome de cada variável é chamado de Identificador
+    *Podem começar com letra, $ ou _
+    *Não podem começar com números
+    *É possível usar letras e/ou números
+    *É possível utilizar acentos e símbolos
+    *Não podem conter espaços
+    *Não podem ser palavras reservadas
+    *Maiúsculas e minúsculas fazem diferença
+    *Use nomes coerentes
+    *Variáveis podem ser declaradas sem especificação de tipo
+
+
+    Utilização:
+        Usando node.js
+        Abrir terminal pelo VSCode e dar o comando 'node'
+        EXEMPLO DE UTILIZAÇÃO: Variável que recebe nome:
+            var nome = 'Jamerson'
+    
+    Tipos:
+        Números são identificados como *number*
+            Subtipos = Infinity;NaN
+        Textos são identificados como *string*
+        True ou False são identificados como *boolean*
+
+        null
+        undefined
+        object
+            Array
+        function
+
+        Existe a função *typeof*, o JS retorna o tipo da variável
+================================================================================================================================================================================================================
+#06
+Manipulação de Dados
+
+Conversão de Tipos:
+    Number.parseInt(n) // Converte para int
+    Number.parseFloat(n) // Converte para float
+    apenas *Number(n)* funciona, inclusive, é melhor para o dinamismo quando se pode receber int ou float
+
+    String(msg) // Converte para String
+    msg.toString() // Converte para String
+
+Formatação de Strings:
+    Strings entre ``(Crases) usam o chamado *Template String*, que é uma forma de formatação para Strings no JS
+    
+    OBJETIVO: Escrever na tela *Jamerson Aguiar de 21 anos está aprendendo JavaScript*
+    var nome = 'Jamerson Aguiar'
+    var idade = 21
+    var s = 'JavaScript'
+    window.alert(`${nome} de ${idade} anos está aprendendo ${s}`)
+
+    s.length // Tamanho da string
+    s.toUpperCase() // Transforma tudo em maiúsculas
+    s.toLowerCase() // Transforma tudo em minúsculas
+
+    document.write('Mensagem') // Escreve na página HTML, e não em uma janela
+    document.writeln('Mensagem') // Mesma função, porém com quebra de linha
+
+Formatação de Números:
+    var n1 = 1545.5
+    *Para imprimir a variável n1 com duas casas decimais:
+        n1.toFixed(2)
+    *Mostrar , ao invés de . como separador:
+        n1.replace('.', ',')
+    *Supondo que n1 fosse um salário, para mostra-lo na forma comum de escrita brasileira:
+        n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL}) /*
+                                                                        A saída é uma string formatada no padrão monetário do Brasil
+                                                                        Também pode ser usada USD para dolar, EUR para euro...
+                                                                        */
+
+HTML:
+    <strong>O que tiver aqui dentro fica em negrito.</strong>
+    </br>: Quebra de linha
+================================================================================================================================================================================================================
+#07
+Operadores Aritméticos e Operadores de Atribuição
+
+Operadores Aritméticos:
+    +  //Soma
+    -  //Subtração
+    *  //Multiplicação
+    /  //Divisão Real
+    %  //Resto da Divisão Inteira
+    ** //Potência
+
+    Ordens de Precedência:
+        ()
+        **
+        *, /, %
+        +, -
+
+Operadores de Atribuição:
+    = Recebe
+
+    var a = 5+3         // Variável a vai guardar a soma de 5+3
+    var b = a%5         // Variável b vai guardar o resto da divisão da soma 5+3 por 5
+    var c = 5 * b ** 2  // Variável c vai guardar a potência de b por 2 multiplicada por 5
+    var d = 10 - a / 2  // Variável d vai guardar a divisão de a por 2 que subtrai de 10
+    var e = 6*2/d       // Variável e vai guardar a multipicação de 6 por 2 dividido por d
+    var f = b%e+4/e     // Variável f vai guardar o resto da divisão de b por e somado com a divisão de 4 por e
+
+    Auto-atribuição:
+        var n = 3
+        n = n + 4       // n recebe o valor que já tem somado a 4
+        n = n - 5       // n recebe o valor que já tem subtraido por 5
+        n = n * 4       // n recebe o valor que já tem multiplicado por 4
+        n = n / 2       // n recebe o valor que já tem dividido por 2
+        n = n ** 2      // n recebe o valor que já tem elevado a 2
+        n = n % 5       // n recebe o resto da divisão dele por 5
+
+        Simplificação:
+        n += 4        // n recebe o valor que já tem somado a 4
+        n -= 5        // n recebe o valor que já tem subtraido por 5
+        n *= 4        // n recebe o valor que já tem multiplicado por 4
+        n /= 2        // n recebe o valor que já tem dividido por 2
+        n **= 2       // n recebe o valor que já tem elevado a 2
+        n %= 5        // n recebe o resto da divisão dele por 5
+    
+    Operadores de Incremento:
+        var x = 5
+        x++         // x recebe seu valor somado a 1
+        x--         // x recebe seu valor subtraido por 1
+================================================================================================================================================================================================================
+#08
+Operadores Relacionais, Operadores Lógicos e Operador Ternário
+
+Operadores Relacionais:
+    >       // Maior que
+    <       // Menor que
+    >=      // Maior ou igual
+    <=      // Menor ou igual
+    ==      // Igual
+    !=      // Diferente
+
+    Identidade:
+        No JavaScript, os operadores relacionais não levam em consideração o tipo, então:
+            5 == 5      //true
+            5 == '5'    //true
+
+        Para solucionar isso, existe o Operador de Igualdade Restrita:
+            5 === 5     //true
+            5 === '5'   //false
+
+        ==      //é igual?
+        ===     //é identico?
+        !=      //é diferente?
+        !==     //é diferente restritamente?
+
+        Basicamente, ==/!= compara valor, ===/!== compara valor e tipos
+
+Operadores Lógicos:
+    !       //negação   NOT
+    &&      //conjunção AND
+    ||      //disjunção OR
+
+    Ordem de Precedência:
+        !
+        &&
+        ||
+
+Operador Ternário:
+    teste ? true : false        /* 'teste' retorna true ou false
+                                    caso true, executa o que está a esquerda dos :
+                                    caso false, executa o que está a direita dos :
+                                */
+
+Ordem de Precedência entre operadores:
+    Aritméticos
+    Relacionais
+    Lógicos
+    Ternário
+================================================================================================================================================================================================================
+#09
+Introdução ao DOM
+
+DOM = Document Object Model
+Modelo de Objetos para Documentos
+Conjunto de objetos dentro do navegador que vai dar acesso aos componentes internos do website
+
+Árvore DOM: (corresponde ao arquivo ex005.html)
+    window                                      // Tudo dentro do JavaScript está dentro de window
+        location                                // Localização, URL do site
+        document                                // Documento atual
+            html                                // HTML do site
+                head                            // Cabeçalho
+                    meta
+                    title
+                body                            // Corpo
+                    h1
+                    p
+                    p
+                        strong
+                    div
+        history                                 // De onde veio, pra onde vai
+
+    Chamam-se elementos ^
+
+    Selecionando:
+        acesso por:
+            Marca
+                getElementsByTagName()
+            ID
+                getElementById()
+            Nome
+                getElementsByName()
+            Classe
+                getElementsByClassName()
+            Seletor
+                querySelector()
+                querySelectorAll()
+
+                Representação:
+                    id = #
+                    classe = .
+================================================================================================================================================================================================================
+#10
+Eventos DOM
+
+//Eventos que podem ser disparados com o movimento do mouse
+Com uma div criada (conferir aula10 arquivo ex006.html), podem acontecer eventos nela:
+    mouseenter  //o mouse entra na div
+    mousemove   //o mouse se move dentro da div
+    mousedown   //o botão do mouse é pressionado dentro da div
+    mouseup     //o botão do mouse é solto dentro da div
+    click       //o botão do mouse é clicado dentro da div
+    mouseout    //o mouse sai da div
+
+Função
+    -É um conjunto de códigos que vão ser executados quando determinado evento ocorrer
+    -Funções são colocadas dentro de blocos
+    -Geralmente o nome da função é uma ação
+
+    function ação(param){
+        código
+    }
+
+Eventos podem ser declarados no HTML, porém o código fica mais limpo, se feito dentro do script:
+    variavel.addEventListener('evento', função)
+
+Detecção de Erros:
+    Use o DevTools do navegador, pode ser acessado pela opção 'inspecionar'
+================================================================================================================================================================================================================
+#11 / #12
+Condições
+
+Sintaxe:
+    if (condição1){
+        //Código executado se condição1 for true
+    } else if (condição2) {
+        //Código executado se condição1 for false e condição2 for true
+    } else {
+        //Código executado se condição2 for false
+    }
+
+Condição Múltipla (Switch Case)
+
+Sintaxe:
+    switch (expressão) {
+        case valor1:
+            //Código se expressão tiver valor1
+            break
+        case valor2:
+            //Código se expressão tiver valor2
+            break
+        case valor3:
+            //Código se expressão tiver valor3
+            break
+        default:
+            //Código se nenhum case for satisfeito
+            break
+    }
+
+DICA:
+    Pegar hora do sistema:
+        Criar objeto Date:
+            var agora = new Date()
+            var hora = agora.getHours()
+        Existem também outros atributos do objeto Date, como ano, dia, etc...
+        Conferir ex013.js para Date.getDay()
+================================================================================================================================================================================================================
+Exercícios Módulo D
+
+Criar o CSS fora do arquivo HTML:
+    ao invés de criar a aba style, criar um link para um arquivo com o CSS
+        <link rel="stylesheet" href="nomedoarquivo.css">
+
+Criar o código JavaScript fora do arquivo HTML:
+    ao invés de criar a aba script, referenciar a origem do script para um arquivo com o código
+        <script src="script.js"></script>
+================================================================================================================================================================================================================
+#13 / #14
+Repetições
+
+Repetição com teste lógico no início:
+    while (condição) {
+        código
+    }
+
+Repetição com teste lógico no final:
+    do {
+        código
+    } while (condição)
+
+Repetição com variável de controle:
+    for (inicio ; teste ; incremento) {
+        código
+    }
+================================================================================================================================================================================================================
+Exercícios Modulo E
